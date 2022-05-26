@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1304063917561920378}
   - component: {fileID: 2496595843008160016}
   - component: {fileID: 7447642369455461206}
-  - component: {fileID: 1447726880733357917}
   - component: {fileID: 2359747701015259649}
   m_Layer: 3
   m_Name: Wall-South
@@ -73,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -797099481
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
@@ -113,18 +112,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1447726880733357917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913274148830766850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96639c86316d446469d8399390e2263a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &2359747701015259649
 Rigidbody2D:
   serializedVersion: 4
@@ -157,7 +144,6 @@ GameObject:
   - component: {fileID: 7878824036714236771}
   - component: {fileID: 1059733854616241554}
   - component: {fileID: 6494464672566274360}
-  - component: {fileID: 3794200711465116497}
   - component: {fileID: 6148090429545166849}
   m_Layer: 3
   m_Name: Wall-East
@@ -219,8 +205,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -797099481
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
@@ -259,18 +245,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3794200711465116497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3045027779939697460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96639c86316d446469d8399390e2263a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &6148090429545166849
 Rigidbody2D:
   serializedVersion: 4
@@ -301,7 +275,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8817544375364895212}
-  - component: {fileID: 5264082104573374494}
   m_Layer: 3
   m_Name: Walls
   m_TagString: Untagged
@@ -328,18 +301,6 @@ Transform:
   m_Father: {fileID: 2759166467155657411}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5264082104573374494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3414148124897040186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96639c86316d446469d8399390e2263a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6357259556020130235
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,7 +429,6 @@ GameObject:
   - component: {fileID: 9061614583117323387}
   - component: {fileID: 6219750751857264967}
   - component: {fileID: 5675385559996461045}
-  - component: {fileID: 4863045348983998010}
   - component: {fileID: 32827279021744024}
   m_Layer: 3
   m_Name: Wall-North
@@ -530,8 +490,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -797099481
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
@@ -570,18 +530,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4863045348983998010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6956665892639431660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96639c86316d446469d8399390e2263a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &32827279021744024
 Rigidbody2D:
   serializedVersion: 4
@@ -614,7 +562,6 @@ GameObject:
   - component: {fileID: 2980174934931812898}
   - component: {fileID: 1823414917140892138}
   - component: {fileID: 455780908674955704}
-  - component: {fileID: 5609572218362546084}
   - component: {fileID: 2213649095008844214}
   m_Layer: 3
   m_Name: Wall-West
@@ -676,8 +623,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -797099481
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
@@ -716,18 +663,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5609572218362546084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8968084832016008674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96639c86316d446469d8399390e2263a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &2213649095008844214
 Rigidbody2D:
   serializedVersion: 4
