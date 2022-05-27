@@ -18,12 +18,14 @@ public class HeroKnight : MonoBehaviour {
     private Sensor_HeroKnight   m_wallSensorL2;
     private bool                m_isWallSliding = false;
     private bool                m_grounded = true;
-    private bool                m_rolling = false;
+    public bool                 isBlocking = false;   
+    public bool                 m_rolling = false;
     private int                 m_facingDirection = 1;
     private int                 m_currentAttack = 0;
     private float               m_timeSinceAttack = 0.0f;
     private float               m_delayToIdle = 0.0f;
     private float               m_rollDuration = 8.0f / 14.0f;
+    private float               blockingTimer = 1.5f;
     private float               m_rollCurrentTime;
 
 
@@ -48,22 +50,11 @@ public class HeroKnight : MonoBehaviour {
             m_rollCurrentTime += Time.deltaTime;
 
         // Disable rolling if timer extends duration
-        if(m_rollCurrentTime > m_rollDuration)
+        if(m_rollCurrentTime > m_rollDuration){
             m_rolling = false;
+            m_rollCurrentTime = 0.0f;
+        }
 
-        // //Check if character just landed on the ground
-        // if (!m_grounded && m_groundSensor.State())
-        // {
-        //     m_grounded = true;
-        //     m_animator.SetBool("Grounded", m_grounded);
-        // }
-
-        // //Check if character just started falling
-        // if (m_grounded && !m_groundSensor.State())
-        // {
-        //     m_grounded = false;
-        //     m_animator.SetBool("Grounded", m_grounded);
-        // }
 
         // -- Handle input and movement --
         float inputX = Input.GetAxis("Horizontal");
@@ -89,10 +80,6 @@ public class HeroKnight : MonoBehaviour {
         //Set AirSpeed in animator
         m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
 
-        // -- Handle Animations --
-        // //Wall Slide
-        // m_isWallSliding = (m_wallSensorR1.State() && m_wallSensorR2.State()) || (m_wallSensorL1.State() && m_wallSensorL2.State());
-        // m_animator.SetBool("WallSlide", m_isWallSliding);
 
         //Death
         if (Input.GetKeyDown("e") && !m_rolling)
@@ -128,31 +115,29 @@ public class HeroKnight : MonoBehaviour {
         // Block
         else if (Input.GetMouseButtonDown(1) && !m_rolling)
         {
+            isBlocking = true;
             m_animator.SetTrigger("Block");
             m_animator.SetBool("IdleBlock", true);
+            
+        }
+        blockingTimer -= Time.deltaTime;
+        if (blockingTimer <= 0)
+        {
+            isBlocking = false;
+            blockingTimer = 1.5f;
         }
 
         else if (Input.GetMouseButtonUp(1))
             m_animator.SetBool("IdleBlock", false);
 
         // Roll
-        else if (Input.GetKeyDown("left shift") && !m_rolling && !m_isWallSliding)
+        else if (Input.GetKeyDown("left shift") && !m_rolling)
         {
             m_rolling = true;
             m_animator.SetTrigger("Roll");
             m_body2d.velocity = new Vector2(m_facingDirection * m_rollForce, m_body2d.velocity.y);
         }
             
-
-        //Jump
-        // else if (Input.GetKeyDown("space") && m_grounded && !m_rolling)
-        // {
-        //     m_animator.SetTrigger("Jump");
-        //     m_grounded = false;
-        //     m_animator.SetBool("Grounded", m_grounded);
-        //     m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
-        //     m_groundSensor.Disable(0.2f);
-        // }
 
         //Run
         else if (Mathf.Abs(inputX) > Mathf.Epsilon || Mathf.Abs(inputY) > Mathf.Epsilon )
