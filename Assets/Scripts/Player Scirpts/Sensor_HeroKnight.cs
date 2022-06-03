@@ -11,6 +11,7 @@ public class Sensor_HeroKnight : MonoBehaviour {
     private float deathTimer= 2.5f;
     private bool isDead = false;
     private CurrentRoomDetails currentRoomDetails;
+    private GameObject[] enemies;
 
     void Start()
     {
@@ -18,6 +19,13 @@ public class Sensor_HeroKnight : MonoBehaviour {
         damageTxt = GameObject.Find("DamageTxt").GetComponent<Text>();
         HeroKnight = GameObject.Find("HeroKnight");
         HeroKnightAnimator = HeroKnight.GetComponent<Animator>();
+        Collider2D PlayerCollider = this.gameObject.transform.parent.GetComponent<Collider2D>();
+        enemies = GameObject.FindGameObjectsWithTag("NPC");
+
+        foreach(GameObject enemy in enemies)
+        {
+            Physics2D.IgnoreCollision(PlayerCollider, enemy.GetComponent<Collider2D>());
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -39,14 +47,14 @@ public class Sensor_HeroKnight : MonoBehaviour {
         if (!script.m_rolling && !script.isBlocking)    
         {
             //check if collider is an npc and has not died yet
-            if (other.tag == "NPC" && m_ColCount < 9)
+            if (other.tag == "NPC_DMG" && m_ColCount < 9)
             {
                 //take damage
                 m_ColCount++;
                 damageTxt.text = "Damage Taken: " + m_ColCount;
                 HeroKnightAnimator.SetTrigger("Hurt");
                 //check if character is npc and is about to die
-            } else if (other.tag == "NPC"){
+            } else if (other.tag == "NPC_DMG"){
                 //kill character
                 isDead = true;
                 HeroKnightAnimator.SetTrigger("Death");
@@ -55,6 +63,28 @@ public class Sensor_HeroKnight : MonoBehaviour {
         }
 
     }
+
+    // void onTriggerEnter2D(Collider2D other)
+    // {
+    //     HeroKnight script = HeroKnight.GetComponent<HeroKnight>();
+    //     if (!script.m_rolling && !script.isBlocking)    
+    //     {
+    //         //check if collider is an npc and has not died yet
+    //         if (other.tag == "NPC" && m_ColCount < 9)
+    //         {
+    //             //take damage
+    //             m_ColCount++;
+    //             damageTxt.text = "Damage Taken: " + m_ColCount;
+    //             HeroKnightAnimator.SetTrigger("Hurt");
+    //             //check if character is npc and is about to die
+    //         } else if (other.tag == "NPC"){
+    //             //kill character
+    //             isDead = true;
+    //             HeroKnightAnimator.SetTrigger("Death");
+    //             damageTxt.text = "You Died!";
+    //         }
+    //     }
+    // }
 
     void Update()
     {
